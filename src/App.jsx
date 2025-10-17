@@ -4,6 +4,7 @@ import TaskList from './Components/TaskList'
 import ProgressTracker from './Components/ProgressTracker'
 import { useState } from 'react'
 import { useEffect } from 'react'
+import './Style.css'
 export default function App() {
   const [tasks, setTasks] = useState([]);
 
@@ -33,7 +34,7 @@ export default function App() {
       <TaskList tasks={tasks}
         updateTask={updateTask}
         deleteTask={deleteTask} />
-      <ProgressTracker />
+      <ProgressTracker tasks={tasks} />
       <button>Clear all tasks</button>
     </div>
   )
