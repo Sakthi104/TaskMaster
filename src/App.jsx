@@ -15,12 +15,24 @@ export default function App() {
     setTasks([...tasks, task]);
   }
 
+  const updateTask = (updatedTask, index) => {
+    const newTasks = [...tasks];
+    newTasks[index] = updatedTask;
+    setTasks(newTasks);
+  }
+
+  const deleteTask = (index) => {
+    setTasks(tasks.filter((_, i) => i !== index));
+  }
+
   return (
     <div>
       <h1>Task Master</h1>
       <p>Your ultimate task management app!</p>
       <TaskForm addTask={addTask} />
-      <TaskList />
+      <TaskList tasks={tasks}
+        updateTask={updateTask}
+        deleteTask={deleteTask} />
       <ProgressTracker />
       <button>Clear all tasks</button>
     </div>

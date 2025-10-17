@@ -34,7 +34,6 @@ export default function TaskForm({ addTask }) {
                     <option value="work">Work</option>
                     <option value="personal">Personal</option>
                 </select>
-                <h3>{task} {priority}  {category}</h3>
             </div>
 
 
