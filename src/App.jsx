@@ -26,16 +26,25 @@ export default function App() {
     setTasks(tasks.filter((_, i) => i !== index));
   }
 
+  const clearTasks = () => {
+    setTasks([]);
+  }
+
   return (
-    <div>
-      <h1>Task Master</h1>
-      <p>Your ultimate task management app!</p>
+    <div className='App'>
+      <header>
+        <h1 className='title'>Task Master</h1>
+        <p className='tagline'>Your ultimate task management app!</p>
+      </header>
       <TaskForm addTask={addTask} />
       <TaskList tasks={tasks}
         updateTask={updateTask}
         deleteTask={deleteTask} />
       <ProgressTracker tasks={tasks} />
-      <button>Clear all tasks</button>
+
+      {tasks.length > 0 && (
+        <button onClick={clearTasks} className='clear-btn'>Clear all tasks</button>
+      )}
     </div>
   )
 }
